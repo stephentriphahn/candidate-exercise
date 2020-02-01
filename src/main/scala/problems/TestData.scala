@@ -1,6 +1,7 @@
 package problems
 
 import problems.ProblemOne.{CabinPrice, Rate}
+import problems.ProblemTwo.Promotion
 
 object TestData {
   val rates = Seq(
@@ -16,4 +17,12 @@ object TestData {
     CabinPrice("CB", "M2", 260.00),
     CabinPrice("CB", "S1", 245.00),
     CabinPrice("CB", "S2", 270.00))
+
+  val promotions = Seq(
+    Promotion("P1", Seq("P3")),
+    Promotion("P2", Seq("P4", "P5")),
+    Promotion("P3", Seq("P1")),
+    Promotion("P4", Seq("P2")),
+    Promotion("P5", Seq("P2"))
+  )
 }

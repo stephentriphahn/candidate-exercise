@@ -1,5 +1,5 @@
 
-import problems.{ProblemOne, TestData}
+import problems.{ProblemOne, ProblemTwo, TestData}
 
 object Main extends App {
   println("Running Problem One...")
@@ -9,4 +9,6 @@ object Main extends App {
   result.foreach(r => println(r))
 
   println("Running Problem Two")
+  val result2 = ProblemTwo.allCombinablePromotions(TestData.promotions)
+
 }
