@@ -1,7 +1,7 @@
 package problems
 
 import scala.collection.mutable
-import scala.collection.mutable.ArrayBuffer
+import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 
 object ProblemOne {
 
@@ -21,16 +21,12 @@ object ProblemOne {
 
     val groupedByCabin = groupPrices.groupBy(_.cabinCode)
 
-    // TODO try and make this better, using recursion and no ArrayBuffer
-    val lowestPrices = ArrayBuffer[BestGroupPrice]()
-    groupedByCabin.foreachEntry((_k, v) => {
+    // TODO try and make this better, using recursion and List :: cons
+    val lowestPrices = ListBuffer[BestGroupPrice]()
+    groupedByCabin.values.foreach(v => {
       val groupToPrices = v.groupBy(_.rateGroup)
-      groupToPrices.foreachEntry((_k, v) => {
-        val sortedByPrice = v.sortBy(_.price)
-        lowestPrices.addOne(sortedByPrice.head)
-      })
+      groupToPrices.values.foreach(prices => lowestPrices += prices.minBy(_.price))
     })
-
     lowestPrices.toSeq
   }
 }
