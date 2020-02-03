@@ -1,7 +1,7 @@
 package problems
 
 import scala.collection.mutable
-import scala.collection.mutable.{ArrayBuffer, ListBuffer}
+import scala.collection.mutable.ListBuffer
 
 object ProblemOne {
 
@@ -27,6 +27,7 @@ object ProblemOne {
       val groupToPrices = v.groupBy(_.rateGroup)
       groupToPrices.values.foreach(prices => lowestPrices += prices.minBy(_.price))
     })
+
     lowestPrices.toSeq
   }
 }
