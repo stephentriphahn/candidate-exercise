@@ -10,5 +10,5 @@ object Main extends App {
 
   println("Running Problem Two")
   val result2 = ProblemTwo.allCombinablePromotions(TestData.promotions)
-
+  println(result2)
 }

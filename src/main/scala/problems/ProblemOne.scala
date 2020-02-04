@@ -10,6 +10,7 @@ object ProblemOne {
   case class BestGroupPrice(cabinCode: String, rateCode: String,
                             price: BigDecimal, rateGroup: String)
 
+
   def getBestGroupPrices(rates: Seq[Rate], prices: Seq[CabinPrice])
   : Seq[BestGroupPrice] = {
 
@@ -21,7 +22,6 @@ object ProblemOne {
 
     val groupedByCabin = groupPrices.groupBy(_.cabinCode)
 
-    // TODO try and make this better, using recursion and List :: cons
     val lowestPrices = ListBuffer[BestGroupPrice]()
     groupedByCabin.values.foreach(v => {
       val groupToPrices = v.groupBy(_.rateGroup)
